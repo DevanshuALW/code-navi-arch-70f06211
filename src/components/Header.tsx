@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Code2, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AuthButton from './AuthButton';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,12 +21,16 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
-              <Code2 className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              CodeNavi
-            </span>
+            <Link to="/">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
+                <Code2 className="h-6 w-6 text-white" />
+              </div>
+            </Link>
+            <Link to="/">
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                CodeNavi
+              </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -43,12 +48,7 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-600 hover:text-blue-600">
-              Sign In
-            </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-              Get Started
-            </Button>
+            <AuthButton />
           </div>
 
           {/* Mobile Menu Button */}
@@ -75,12 +75,7 @@ const Header = () => {
                 </a>
               ))}
               <div className="flex flex-col space-y-2 px-4 pt-4">
-                <Button variant="ghost" className="justify-start">
-                  Sign In
-                </Button>
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600">
-                  Get Started
-                </Button>
+                <AuthButton />
               </div>
             </nav>
           </div>
